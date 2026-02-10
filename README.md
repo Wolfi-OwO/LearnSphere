@@ -138,8 +138,4 @@ docker push example-registry/learning-app:v1.0.0
 docker push example-registry/learning-app:latest
 ```
 
-<!-- markdownlint-disable -->
-<div style="background-color: #cce5ff; padding: 10px; border-radius: 5px; border: 1px solid #004085;">
-<strong>Info:</strong> The above commands are examples and may need to be adjusted based on the specific setup and configuration of the application. Always refer to the official documentation for the most accurate and up-to-date instructions. The placeholder URLs will be later replaced with the correct URLs.
-</div>
-<!-- markdownlint-enable -->
+> **Info:** The above commands are examples and may need to be adjusted based on the specific setup and configuration of the application. Always refer to the official documentation for the most accurate and up-to-date instructions. The placeholder URLs will be later replaced with the correct URLs.
