@@ -1,5 +1,6 @@
 import {createBrowserRouter} from "react-router-dom";
 import MainLayout from "./assets/layouts/MainLayout.jsx";
+import MyProfilePage from "./assets/pages/my-profile/MyProfile.jsx";
 
 
 const router = createBrowserRouter([
@@ -20,6 +21,14 @@ const router = createBrowserRouter([
             {
                 path: "",
                 element: <h1>Home</h1>
+            },
+            {
+                path: "my-profile",
+                element: <MyProfilePage />
+            },
+            {
+                path: "my-profile/edit",
+                element: <MyProfilePage />
             }
         ]
     }
