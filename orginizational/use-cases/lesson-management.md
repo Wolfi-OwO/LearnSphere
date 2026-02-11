@@ -1,27 +1,27 @@
 # UC: Lesson Management
 
-## Beschreibung
+## Description
 
 Instructors can create and manage lessons within sessions. This includes adding content, resources, and setting the lesson order.
 
-## Akteur(e)
+## Actor(s)
 
-* Primärer Akteur: Instructor
+* Primary Actor: Instructor
 
-## Vorbedingung(en)
+## Preconditions
 
 * The instructor must be logged in.
 * A session must exist.
 
-## Nachbedingung(en)
+## Postconditions
 
 * The lesson is created or updated successfully.
 
-## Trigger(s)
+## Triggers
 
 * The instructor initiates lesson creation or update.
 
-## Normaler Ablauf:
+## Normal Flow
 
 1. The instructor navigates to the lesson management page.
 2. The instructor fills in the lesson details.
@@ -29,11 +29,11 @@ Instructors can create and manage lessons within sessions. This includes adding 
 4. The system saves the lesson information.
 5. A confirmation message is displayed.
 
-## Alternative Abläufe:
+## Alternative Flows
 
 3.1 If the input is invalid, an error message is displayed, and the instructor is prompted to correct the input.
 
-## UML Aktivitätsdiagramm
+## UML Activity Diagram
 
 ```plantuml
 @startuml

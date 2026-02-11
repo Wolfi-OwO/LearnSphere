@@ -1,26 +1,26 @@
 # UC: Course Management
 
-## Beschreibung
+## Description
 
 Instructors can create, update, and manage courses. This includes adding descriptions, managing course visibility, and assigning instructors.
 
-## Akteur(e)
+## Actor(s)
 
-* Primärer Akteur: Instructor
+* Primary Actor: Instructor
 
-## Vorbedingung(en)
+## Preconditions
 
 * The instructor must be logged in.
 
-## Nachbedingung(en)
+## Postconditions
 
 * The course is created or updated successfully.
 
-## Trigger(s)
+## Triggers
 
 * The instructor initiates course creation or update.
 
-## Normaler Ablauf:
+## Normal Flow
 
 1. The instructor navigates to the course management page.
 2. The instructor fills in the course details.
@@ -28,11 +28,11 @@ Instructors can create, update, and manage courses. This includes adding descrip
 4. The system saves the course information.
 5. A confirmation message is displayed.
 
-## Alternative Abläufe:
+## Alternative Flows
 
 3.1 If the input is invalid, an error message is displayed, and the instructor is prompted to correct the input.
 
-## UML Aktivitätsdiagramm
+## UML Activity Diagram
 
 ```plantuml
 @startuml
