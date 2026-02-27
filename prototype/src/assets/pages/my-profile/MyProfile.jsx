@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import {
   Container,
   Row,
@@ -13,28 +13,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import "./MyProfile.css"; // Add custom styles for better design
 import { NavLink } from "react-router-dom"; // Corrected import for NavLink
+import PropTypes from "prop-types";
+import { initialState, reducer } from "./MyProfileReducer.js";
 
-function MyProfile() {
-  const userData = {
-    name: "John Doe",
-    email: "john.doe@example.com",
-    joined: "January 2023",
-    completedCourses: 12,
-    ongoingCourses: 3,
-    totalLessons: 120,
-    lessonsCompleted: 95,
-    lastOnline: "February 10, 2026",
-    currentStatus: "Active",
-    role: "Student",
-    activity: generateWeekdayArrays(2026), // Sample activity data for the Activity Board
-  };
+
+
+function MyProfile({ isEdit = false }) {
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const completionRate = Math.round(
-    (userData.lessonsCompleted / userData.totalLessons) * 100,
+    (state.lessonsCompleted / state.totalLessons) * 100,
   );
 
   return (
-    <Container fluid className="my-profile-page mt-4">
+    <Container fluid className="d-flex flex-column page my-profile-page mt-4 flex-fill">
       <Card className="user-card px-2">
         <Row className="align-items-center">
           <Col xs={"auto"} md={"auto"} lg={"auto"} xl={"auto"}>
@@ -47,25 +39,25 @@ function MyProfile() {
               />
               <Badge
                 bg={
-                  userData.currentStatus === "Active" ? "success" : "secondary"
+                  state.currentStatus === "Active" ? "success" : "secondary"
                 }
                 className="status-badge"
               ></Badge>
             </div>
           </Col>
           <Col>
-            <Container>
+            <Container fluid>
               <Row>
                 <Col>
                   <Card.Title className="fs-4 fw-bold">
-                    {userData.name}
+                    {state.name}
                   </Card.Title>
                 </Col>
               </Row>
               <Row>
                 <Col>
                   <Card.Subtitle className="fs-6">
-                    {userData.email}
+                    {state.email}
                   </Card.Subtitle>
                 </Col>
               </Row>
@@ -73,61 +65,49 @@ function MyProfile() {
           </Col>
         </Row>
         <span className="text-muted">
-          Member since: {userData.joined} (
+          Member since: {state.joined} (
           {Math.floor(
-            (new Date() - new Date(userData.joined)) / (1000 * 60 * 60 * 24),
+            (new Date() - new Date(state.joined)) / (1000 * 60 * 60 * 24),
           )}{" "}
           days)
         </span>
-        {userData.currentStatus !== "Active" && (
-          <span className="text-muted">Last Online: {userData.lastOnline}</span>
+        {state.currentStatus !== "Active" && (
+          <span className="text-muted">Last Online: {state.lastOnline}</span>
         )}
-        <NavLink to="edit" as={Button} className="user-edit-btn m-2 p-2">
-          <FontAwesomeIcon icon={faPenToSquare} />
-        </NavLink>
+        {!isEdit &&
+          <NavLink to="edit" as={Button} className="user-edit-btn m-2 p-2">
+            <FontAwesomeIcon icon={faPenToSquare} />
+          </NavLink>
+        }
       </Card>
 
-      <Card className="user-card mt-4">
+      <Card className="user-card flex-fill my-4">
         <Card.Body>
-          <Row xs={1} md={2}>
-            <Col>
+          <Row xs={1} md={1}>
+            <Col className="mb-2">
               <Card.Title>Activity Board</Card.Title>
-              <ActivityBoard activity={userData.activity} />
+              <ActivityBoard activity={state.activity} />
             </Col>
-            <Col>
+            <Col className="mb-2">
               <Card.Title>Statistics</Card.Title>
             </Col>
           </Row>
         </Card.Body>
       </Card>
+
+      <Row className="mb-4">
+        <Col className="d-flex justify-content-end">
+          <Button>
+            Save
+          </Button>
+        </Col>
+      </Row>
     </Container>
   );
 }
 
-function generateWeekdayArrays(year) {
-  const daysOfWeek = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-  ];
-  const weekdaysArray = daysOfWeek.map(() => []);
-  let date = new Date(year, 0, 1);
-  date.setDate(date.getDate() - ((date.getDay() + 6) % 7)); // first Monday
-
-  while (date.getFullYear() <= year) {
-    const weekdayIndex = (date.getDay() + 6) % 7;
-    weekdaysArray[weekdayIndex].push({
-      date: date.toISOString().split("T")[0],
-      day: daysOfWeek[weekdayIndex],
-      description: `Activity on ${date.toDateString()}`,
-    });
-    date.setDate(date.getDate() + 1);
-  }
-  return weekdaysArray;
+MyProfile.propTypes = {
+  iSEdit: PropTypes.bool
 }
 
 export default MyProfile;

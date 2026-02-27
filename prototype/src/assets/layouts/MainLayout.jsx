@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Container, Nav, NavDropdown, Row, Col } from "react-bootstrap";
 
 export default function MainLayout() {
   return (
@@ -21,17 +21,19 @@ export default function MainLayout() {
             }
             id="profile-dropdown"
           >
-            <NavDropdown.Item>
+            <NavDropdown.Item as={"div"}>
               <NavLink to="/my-profile">View Profile</NavLink>
-            </NavDropdown.Item>
-            <NavDropdown.Item href="#settings">Settings</NavDropdown.Item>
+            </NavDropdown.Item >
+            <NavDropdown.Item as={"div"}>Settings</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="#logout">Logout</NavDropdown.Item>
+            <NavDropdown.Item as={"div"}>Logout</NavDropdown.Item>
           </NavDropdown>
         </Container>
       </Navbar>
 
-      <Outlet />
+      <Container fluid className="d-flex flex-column flex-fill p-0">
+        <Outlet/>
+      </Container>
     </Fragment>
   );
 }

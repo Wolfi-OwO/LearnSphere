@@ -7,3 +7,8 @@
 .bg-bronze {
   background-color: #cd7f32;
 }
+
+html, head, body, #root {
+  height: 100%;
+  width: 100%;
+}
