@@ -4,7 +4,7 @@ import { useParams, useNavigate, Navigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck, faCirclePlay, faLock } from "@fortawesome/free-solid-svg-icons";
 import { getCourse, countLessons } from "../../data/mockData.js";
-import { useAppStore, ACTIONS } from "../../store/AppStore.jsx";
+import { useAppStore, ACTIONS } from "../../store/appStore.js";
 
 export default function CourseDetailPage() {
   const { courseId } = useParams();

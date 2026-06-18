@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col, Card, Button, Badge, ProgressBar } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { courses, countLessons } from "../../data/mockData.js";
-import { useAppStore, ACTIONS } from "../../store/AppStore.jsx";
+import { useAppStore, ACTIONS } from "../../store/appStore.js";
 
 export default function CoursesPage() {
   const { state, dispatch } = useAppStore();

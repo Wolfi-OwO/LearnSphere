@@ -47,7 +47,46 @@ npm run lint
 npm run build
 ```
 
+### Screenshots
 
+| Dashboard                                                   | Course Catalog                                                      |
+| ----------------------------------------------------------- | ------------------------------------------------------------------- |
+| ![Dashboard](organizational/prototype/images/dashboard.png) | ![Course catalog](organizational/prototype/images/courses-page.png) |
+
+| Course Details                                                              | User Profile                                                      |
+| --------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| ![Course details](organizational/prototype/images/courses-details-page.png) | ![User profile](organizational/prototype/images/profile-page.png) |
+
+| Invitations                                                          | Certificates                                                           |
+| -------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| ![Invitations](organizational/prototype/images/invitations-page.png) | ![Certificates](organizational/prototype/images/certificates-page.png) |
+
+## Tech Stack
+
+| Layer                   | Technology                                                                                         |
+| ----------------------- | -------------------------------------------------------------------------------------------------- |
+| Frontend framework      | [React 19](https://react.dev/)                                                                     |
+| Build tool / dev server | [Vite 7](https://vite.dev/)                                                                        |
+| UI components & styling | [React-Bootstrap](https://react-bootstrap.netlify.app/) + [Bootstrap 5](https://getbootstrap.com/) |
+| Icons                   | [Font Awesome](https://fontawesome.com/)                                                           |
+| Routing                 | [React Router 7](https://reactrouter.com/)                                                         |
+| State management        | React `useReducer` + Context (`AppStore`)                                                          |
+| Linting                 | [ESLint 9](https://eslint.org/)                                                                    |
+| CI                      | GitHub Actions (lint + build)                                                                      |
+| Auth (planned)          | OAuth 2.0 (Google, Microsoft)                                                                      |
+| Backend (planned)       | Node.js API + MongoDB, containerized with Docker                                                   |
+
+> The prototype is currently a frontend-only application backed by mock data in
+> [`prototype/src/assets/data/mockData.js`](prototype/src/assets/data/mockData.js).
+> The planned backend and auth layers are documented under [`organizational/`](organizational/).
+
+## Documentation
+
+Design and planning documents live under [`organizational/`](organizational/):
+
+- [Application Overview](organizational/application-overview.md) — purpose, features, and domain model.
+- [Use Cases](organizational/use-cases/overview.md) — all use cases with activity diagrams.
+- [Requirements](organizational/requirements/ReadMe.md) — detailed requirements per business area.
 
 ## Developer Notes
 

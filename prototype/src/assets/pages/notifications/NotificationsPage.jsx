@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Card, Button, Badge, ListGroup } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
-import { useAppStore, ACTIONS } from "../../store/AppStore.jsx";
+import { useAppStore, ACTIONS } from "../../store/appStore.js";
 
 export default function NotificationsPage() {
   const { state, dispatch } = useAppStore();

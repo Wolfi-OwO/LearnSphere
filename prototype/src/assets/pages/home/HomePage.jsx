@@ -2,8 +2,8 @@ import React from "react";
 import { Container, Row, Col, Card, Button, ProgressBar } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import PodiumLeaderBoard from "../../components/podium-leaderboard/PodiumLeaderBoard.jsx";
-import { courses, users, getCourse, countLessons, currentUser } from "../../data/mockData.js";
-import { useAppStore } from "../../store/AppStore.jsx";
+import { users, getCourse, countLessons, currentUser } from "../../data/mockData.js";
+import { useAppStore } from "../../store/appStore.js";
 
 export default function HomePage() {
   const { state } = useAppStore();

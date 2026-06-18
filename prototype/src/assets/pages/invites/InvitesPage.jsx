@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Card, Button, Badge, ListGroup, Form } from "react-bootstrap";
 import { courses, getCourse } from "../../data/mockData.js";
-import { useAppStore, ACTIONS } from "../../store/AppStore.jsx";
+import { useAppStore, ACTIONS } from "../../store/appStore.js";
 
 const STATUS_VARIANT = {
   PENDING: "warning",

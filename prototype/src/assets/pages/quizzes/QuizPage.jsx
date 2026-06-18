@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, Card, Button, Form, Alert, ProgressBar } from "react-bootstrap";
 import { useParams, useNavigate, Navigate } from "react-router-dom";
 import { quizzes } from "../../data/mockData.js";
-import { useAppStore, ACTIONS } from "../../store/AppStore.jsx";
+import { useAppStore, ACTIONS } from "../../store/appStore.js";
 
 export default function QuizPage() {
   const { quizId } = useParams();

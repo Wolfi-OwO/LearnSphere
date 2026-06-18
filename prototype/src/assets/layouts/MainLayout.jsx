@@ -4,7 +4,7 @@ import { Navbar, Container, Nav, NavDropdown, Badge } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
 import { currentUser } from "../data/mockData.js";
-import { useAppStore } from "../store/AppStore.jsx";
+import { useAppStore } from "../store/appStore.js";
 
 export default function MainLayout() {
   const { state } = useAppStore();

@@ -16,7 +16,7 @@ import "./MyProfile.css"; // Add custom styles for better design
 import { NavLink, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { initialState, reducer, ACTIONS } from "./MyProfileReducer.js";
-import { useAppStore } from "../../store/AppStore.jsx";
+import { useAppStore } from "../../store/appStore.js";
 import { getCourse, countLessons } from "../../data/mockData.js";
 
 

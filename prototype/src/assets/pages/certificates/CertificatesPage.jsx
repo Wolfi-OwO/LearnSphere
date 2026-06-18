@@ -3,7 +3,7 @@ import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAward } from "@fortawesome/free-solid-svg-icons";
 import { currentUser } from "../../data/mockData.js";
-import { useAppStore } from "../../store/AppStore.jsx";
+import { useAppStore } from "../../store/appStore.js";
 
 export default function CertificatesPage() {
   const { state } = useAppStore();

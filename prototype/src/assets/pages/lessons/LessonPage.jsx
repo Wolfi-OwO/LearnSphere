@@ -16,7 +16,7 @@ import {
   getCourse,
   currentUser,
 } from "../../data/mockData.js";
-import { useAppStore, ACTIONS } from "../../store/AppStore.jsx";
+import { useAppStore, ACTIONS } from "../../store/appStore.js";
 
 const RESOURCE_ICONS = {
   VIDEO: faVideo,
