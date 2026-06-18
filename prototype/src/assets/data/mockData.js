@@ -1,5 +1,5 @@
 // Central mock data for the LearnSphere prototype.
-// This stands in for the future backend (see orginizational/application-overview.md).
+// This stands in for the future backend (see organizational/application-overview.md).
 
 export const currentUser = {
   id: "u1",
