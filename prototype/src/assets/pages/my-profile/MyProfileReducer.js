@@ -1,14 +1,12 @@
+import { currentUser } from "../../data/mockData.js";
+
 export const initialState = {
-    name: "John Doe",
-    email: "john.doe@example.com",
-    joined: "January 2023",
-    completedCourses: 12,
-    ongoingCourses: 3,
-    totalLessons: 120,
-    lessonsCompleted: 95,
-    lastOnline: "February 10, 2026",
-    currentStatus: "Active",
-    role: "Student",
+    name: currentUser.name,
+    email: currentUser.email,
+    joined: currentUser.joined,
+    lastOnline: currentUser.lastOnline,
+    currentStatus: currentUser.currentStatus,
+    role: currentUser.role,
     activity: generateWeekdayArrays(2026), // Sample activity data for the Activity Board
 }
 

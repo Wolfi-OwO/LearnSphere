@@ -16,16 +16,24 @@ import "./MyProfile.css"; // Add custom styles for better design
 import { NavLink, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { initialState, reducer, ACTIONS } from "./MyProfileReducer.js";
+import { useAppStore } from "../../store/AppStore.jsx";
+import { getCourse, countLessons } from "../../data/mockData.js";
 
 
 
 function MyProfile({ isEdit = false }) {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const { state: store } = useAppStore();
   const navigate = useNavigate();
 
-  const completionRate = Math.round(
-    (state.lessonsCompleted / state.totalLessons) * 100,
-  );
+  const enrolledCourses = Object.keys(store.enrollments).map(getCourse).filter(Boolean);
+  const ongoingCourses = enrolledCourses.length;
+  const completedCourses = store.certificates.length;
+  const lessonsCompleted = Object.values(store.lessonProgress).filter(Boolean).length;
+  const totalLessons = enrolledCourses.reduce((sum, c) => sum + countLessons(c), 0);
+  const completionRate = totalLessons
+    ? Math.round((lessonsCompleted / totalLessons) * 100)
+    : 0;
 
   const updateField = (field) => (event) =>
     dispatch({ type: ACTIONS.UPDATE_FIELD, field, value: event.target.value });
@@ -125,15 +133,15 @@ function MyProfile({ isEdit = false }) {
               <Card.Title>Statistics</Card.Title>
               <Row xs={2} md={4} className="g-3 mb-3 text-center">
                 <Col>
-                  <div className="fs-3 fw-bold">{state.completedCourses}</div>
+                  <div className="fs-3 fw-bold">{completedCourses}</div>
                   <div className="text-muted small">Completed courses</div>
                 </Col>
                 <Col>
-                  <div className="fs-3 fw-bold">{state.ongoingCourses}</div>
+                  <div className="fs-3 fw-bold">{ongoingCourses}</div>
                   <div className="text-muted small">Ongoing courses</div>
                 </Col>
                 <Col>
-                  <div className="fs-3 fw-bold">{state.lessonsCompleted}</div>
+                  <div className="fs-3 fw-bold">{lessonsCompleted}</div>
                   <div className="text-muted small">Lessons completed</div>
                 </Col>
                 <Col>
@@ -144,7 +152,7 @@ function MyProfile({ isEdit = false }) {
               <div className="d-flex justify-content-between">
                 <span className="fw-bold">Lesson completion</span>
                 <span className="text-muted">
-                  {state.lessonsCompleted} / {state.totalLessons}
+                  {lessonsCompleted} / {totalLessons}
                 </span>
               </div>
               <ProgressBar
